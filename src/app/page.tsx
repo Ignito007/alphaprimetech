@@ -147,7 +147,6 @@ export default function HomePage() {
                 </div>
 
                 <div className="mt-3 flex items-center justify-between text-xs ap-muted">
-                  <span>File: /public/brand/alphaprimetech-hero.mp4</span>
                   <span>Use controls to enable sound</span>
                 </div>
               </div>
