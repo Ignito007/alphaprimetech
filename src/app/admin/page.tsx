@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function AdminHomePage() {
+function AdminHomeContent() {
   const router = useRouter();
   const sp = useSearchParams();
 
@@ -14,12 +14,10 @@ export default function AdminHomePage() {
 
     (async () => {
       try {
-        // Clear cookies without navigating away
         await fetch("/api/admin/clear", { method: "POST" });
       } catch {
         // ignore
       } finally {
-        // Always go to login page
         router.replace("/admin/login");
         router.refresh();
       }
@@ -74,5 +72,22 @@ export default function AdminHomePage() {
         </p>
       </div>
     </main>
+  );
+}
+
+export default function AdminHomePage() {
+  return (
+    <Suspense
+      fallback={
+        <main className="mx-auto w-full max-w-6xl px-4 py-12 md:py-16">
+          <div className="ap-card p-6">
+            <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Admin</h1>
+            <p className="mt-2 text-sm ap-muted">Loading admin page...</p>
+          </div>
+        </main>
+      }
+    >
+      <AdminHomeContent />
+    </Suspense>
   );
 }
