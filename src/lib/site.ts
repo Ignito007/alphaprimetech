@@ -1,15 +1,10 @@
 export const site = {
   name: "AlphaPrimeTech",
   domain: "alphaprimetech.com",
-
-  // ✅ Added to fix Vercel build error
   locationLine: "IT Consulting • Staffing • NY",
-
   contactEmail: "contact@alphaprimetech.com",
-
   tagline:
     "Strategic IT consulting and staffing solutions focused on clarity, execution, and measurable outcomes.",
-
   companyBlurb:
     "AlphaPrimeTech is a New York–based IT consulting and staffing firm delivering structured, outcome-driven technology solutions across cloud, ERP, digital transformation, and enterprise mobility.",
 
@@ -54,7 +49,6 @@ export const site = {
     },
   ],
 
-  // ✅ This is what the detail pages use
   serviceDetails: [
     {
       slug: "cloud-consulting",

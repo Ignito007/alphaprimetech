@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 
-export function LogoutBanner() {
+function LogoutBannerContent() {
   const sp = useSearchParams();
   const router = useRouter();
   const [show, setShow] = useState(false);
@@ -14,7 +14,6 @@ export function LogoutBanner() {
 
     setShow(true);
 
-    // Auto-hide and clean the URL
     const t = setTimeout(() => {
       setShow(false);
       router.replace("/", { scroll: false });
@@ -38,5 +37,13 @@ export function LogoutBanner() {
         ✅ Logout successful.
       </div>
     </div>
+  );
+}
+
+export function LogoutBanner() {
+  return (
+    <Suspense fallback={null}>
+      <LogoutBannerContent />
+    </Suspense>
   );
 }
