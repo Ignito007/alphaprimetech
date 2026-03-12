@@ -1,9 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { Suspense, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function AdminLoginPage() {
+function AdminLoginForm() {
   const router = useRouter();
   const sp = useSearchParams();
 
@@ -14,10 +14,11 @@ export default function AdminLoginPage() {
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
 
-  async function onSubmit(e: React.FormEvent) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setErr(null);
     setBusy(true);
+
     try {
       const res = await fetch("/api/admin/login", {
         method: "POST",
@@ -32,8 +33,9 @@ export default function AdminLoginPage() {
 
       router.push(next);
       router.refresh();
-    } catch (ex: any) {
-      setErr(ex?.message || "Login failed");
+    } catch (ex: unknown) {
+      const message = ex instanceof Error ? ex.message : "Login failed";
+      setErr(message);
     } finally {
       setBusy(false);
     }
@@ -116,5 +118,22 @@ export default function AdminLoginPage() {
         </form>
       </div>
     </main>
+  );
+}
+
+export default function AdminLoginPage() {
+  return (
+    <Suspense
+      fallback={
+        <main className="mx-auto w-full max-w-lg px-4 py-16">
+          <div className="ap-card p-6 md:p-8">
+            <h1 className="text-2xl md:text-3xl font-bold tracking-tight">Admin login</h1>
+            <p className="mt-2 text-sm ap-muted">Loading login form...</p>
+          </div>
+        </main>
+      }
+    >
+      <AdminLoginForm />
+    </Suspense>
   );
 }
