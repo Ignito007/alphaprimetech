@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Base theme helpers (existing project uses these classnames) ---------- */
+:root {
+  color-scheme: dark;
+}
+
+.ap-muted {
+  color: rgba(229, 231, 235, 0.78);
+}
+
+.ap-muted2 {
+  color: rgba(229, 231, 235, 0.58);
+}
+
+/* Card styling used across the site */
+.ap-card {
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+}
+
+.ap-card-strong {
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ---------- Micro-interactions ---------- */
+.ap-btn-hover {
+  transition: transform 180ms ease, opacity 180ms ease, filter 180ms ease;
+  will-change: transform;
+}
+
+.ap-btn-hover:hover {
+  transform: translateY(-1px);
+}
+
+.ap-btn-hover:active {
+  transform: translateY(0px);
+}
+
+/* ---------- Subtle scroll reveal (corporate) ---------- */
+.ap-reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 420ms ease, transform 420ms ease;
+}
+
+.ap-reveal--in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slightly reduce motion if user prefers */
+@media (prefers-reduced-motion: reduce) {
+  .ap-reveal,
+  .ap-btn-hover {
+    transition: none !important;
+    transform: none !important;
+  }
+}

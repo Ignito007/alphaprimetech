@@ -1,0 +1,50 @@
+{
+  "jobs": [
+    {
+      "id": "job-1771478650845",
+      "title": "Cloud Architect",
+      "location": "New York, NY",
+      "mode": "Hybrid",
+      "type": "Contract",
+      "summary": "Drive cloud architecture patterns and landing-zone standards. Partner with delivery teams to implement guardrails and compliance.",
+      "responsibilities": [
+        "•\tDefine target cloud architecture patterns and landing-zone standards",
+        "•\tPartner with security teams to implement guardrails and compliance baselines",
+        "•\t Guide migration planning (sequencing, dependencies, risk mitigation)",
+        "•\t Support delivery teams with architecture reviews and operational readiness"
+      ],
+      "requirements": [
+        "•\tHands-on experience with AWS or Azure architecture",
+        "•\tStrong understanding of networking, IAM, logging/monitoring, and cost optimization",
+        "•\tExperience designing secure cloud landing zones and governance patterns",
+        "•\tAbility to translate business goals into practical technical decisions"
+      ],
+      "posted": "2026-02-19",
+      "published": true,
+      "featured": false
+    },
+    {
+      "id": "job-1771259947913",
+      "title": "ERP Project Manager",
+      "location": "New York, NY",
+      "mode": "Onsite",
+      "type": "Contract",
+      "summary": "Looking for an experienced ERP Project Manager with an active PMP certification.",
+      "responsibilities": [
+        "•\tOwn delivery plan, milestones, and reporting cadence",
+        "•\tCoordinate functional and technical workstreams",
+        "•\tManage risks, dependencies, and escalation paths",
+        "•\tEnsure documentation standards, decision logs, and handoff readiness"
+      ],
+      "requirements": [
+        "•\tProven ERP project delivery experience (planning → go-live)",
+        "•\tStrong stakeholder management and governance execution",
+        "•\tAbility to run structured status reporting and risk controls",
+        "•\tComfortable coordinating cross-functional teams"
+      ],
+      "posted": "2026-02-16",
+      "published": true,
+      "featured": true
+    }
+  ]
+}
